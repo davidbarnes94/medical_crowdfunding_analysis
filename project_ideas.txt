@@ -1,0 +1,20 @@
+intenet data sources:
+Thinking about project ideas:
+1. predict if a college student is suffering from depression. data from MIT Confessions and confessions pages of other school. perform some type of sentiment analysis of the posts on the confessions page. It may be difficult to predict for units of one person. 
+2. News suicide reports from schools across the US. number of student suicides, amount of money spent by their mental health care center, student programs, number of clinicans, academic rank of school, cost of the education, undergrad or grad students, amount of exercise of the students. what about those that don't give the cause of death? cases in court against the school. 
+3. the MIT Libraries and the book system. books coming in and out of the library
+4. things relating to healthcare: road safety, food safety, drug abuse, ER, medical images, exercise
+5. all the running tracks in Boston, Strava data
+6. improving access to healthcare in the US
+7. price transparency
+8. opioid crisis and other drug crises
+9. using scrapy to build your own dataset: https://towardsdatascience.com/using-scrapy-to-build-your-own-dataset-64ea2d7d4673
+10. gofundme and people generally raising money to fund health conditions
+11. predicting the amount of money that a campaigner will raise. What is the best way to run a health campaign?
+List of crowdfunding sities:
+- gofundme
+- fundrazr
+- helphopelive
+- youcaring
+- fundly
+- generosity by indiegogo
