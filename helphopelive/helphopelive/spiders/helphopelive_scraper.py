@@ -8,8 +8,9 @@ class Crowdfund_Helphopelive(scrapy.Spider):
     #make list of all start urls   
     
     def start_requests(self):
-        start_urls = ["https://helphopelive.org/campaign/10798/"]
-        for url in start_urls:
+        urls = ["https://helphopelive.org/campaign/10798/",
+                "https://helphopelive.org/campaign/13930/"] #Chelsea Rush, Lucia Torres
+        for url in urls:
             yield scrapy.Request(url=url,callback=self.parse)
     #start_urls = []
     #for i in range(5100, 5110):
@@ -33,7 +34,7 @@ class Crowdfund_Helphopelive(scrapy.Spider):
         sample = HelphopeliveItem()
         
         #get campaign title
-        sample['campaign_title'] = response.xpath("//section[contains(@class,'campaign-element campaign-lead')]//h1[contains(@class,'lead')]/descendant::text").extract()[0]
+        sample['campaign_title'] = response.xpath("//section[contains(@class,'campaign-element campaign-lead')]//h1/text()").extract()
         
         #get amount raised
         sample['amount_raised'] = response.xpath("//span[contains(@class,'teal')]/descendant::text()").extract()[0]
@@ -51,6 +52,9 @@ class Crowdfund_Helphopelive(scrapy.Spider):
         sample['url'] = response.xpath("//meta[@property='og:url']/@content").extract()[0]
         
         #get the number of photos
-        sample['num_of_photos'] = response.xpath("//div[contains(@class,'campaign-element__header')]//span[contains(@class,'photos-total')]/text()").extract()[0]
+        try:
+            sample['num_of_photos'] = response.xpath("//div[contains(@class,'campaign-element__header')]//span[contains(@class,'photos-total')]/text()").extract()[0]
+        except:
+            sample['num_of_photos'] = 1
         
         yield sample
